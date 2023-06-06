@@ -1,2 +1,5 @@
 "use strict";
-let lname = 'John';
+let lname;
+lname = "Jon";
+let nerName = lname.toUpperCase();
+console.log(lname + nerName);
