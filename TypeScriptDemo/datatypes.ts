@@ -43,3 +43,30 @@ const enum Color {
 let c:Color = Color.Blue;
 
 console.log(c);
+
+let swapNumbs: [number, number];
+
+function swapNumbers(num1:number, num2:number):[number, number] {
+    return [num1 , num2];
+}
+
+swapNumbs = swapNumbers(10, 20);
+
+console.log(swapNumbs);
+console.log(swapNumbs[0]);
+console.log(swapNumbs[1]);
+
+let department:any;
+
+department = "2a";
+console.log(department);
+
+department = 2;
+console.log(department);
+
+function add(num1: number, num2: number): any {
+    return num1 + num2;
+}
+
+department = add(2, 9);
+console.log(department);
