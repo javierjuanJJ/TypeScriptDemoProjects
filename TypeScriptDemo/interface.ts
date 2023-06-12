@@ -11,3 +11,9 @@ var Users = {
     id:1,
     email:'string',
 }
+// @Component({})
+// class Component {
+//     constructor(public name: string) {
+//     }
+//
+// }
