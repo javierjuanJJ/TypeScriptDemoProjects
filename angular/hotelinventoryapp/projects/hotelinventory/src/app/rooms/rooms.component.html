@@ -1,1 +1,30 @@
 <p>Welcome to {{ hotelRoom }}</p>
+<div [hidden]="hideRoom">
+    Number of Rooms:
+    <div [innerText]="numberOfRooms">
+
+    </div>
+</div>
+
+{{ rooms?.availableRooms ?? "No rooms" }}
+
+<div *ngIf="rooms.availableRooms > 0">
+    Room List {{roomList}}
+    <table>
+        <tr>
+            <th>Room Type</th>
+            <th>Room Price</th>
+            <th>Room Amnesties</th>
+            <th>Checkin time</th>
+        </tr>
+        <tr *ngFor="let room of roomList">
+            <th>{{room.rootType}}</th>
+            <th>{{room.price}}</th>
+            <th>{{room.amneties}}</th>
+            <th>{{room.checkInTime}}</th>
+        </tr>
+    </table>
+</div>
+
+<button (click)="toogle()">Toogle</button>
+
