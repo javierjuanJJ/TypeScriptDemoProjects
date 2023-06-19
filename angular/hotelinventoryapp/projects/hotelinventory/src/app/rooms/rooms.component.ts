@@ -19,62 +19,7 @@ export class RoomsComponent implements OnInit {
     };
 
     roomList: RoomList[] = [
-        {
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
-        {
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
-        {
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
-        {
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
-        {
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
-        {
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
-        {
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
+
     ];
 
     constructor() {
@@ -83,7 +28,62 @@ export class RoomsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
+        this.roomList = [{
+            rootType: 'string',
+            amneties: 'string',
+            price: 2,
+            photos: 'string',
+            checkInTime: new Date('11-Nov-2021'),
+            checkOutTime: new Date('11-Nov-2021'),
+        },
+            {
+                rootType: 'string',
+                amneties: 'string',
+                price: 2,
+                photos: 'string',
+                checkInTime: new Date('11-Nov-2021'),
+                checkOutTime: new Date('11-Nov-2021'),
+            },
+            {
+                rootType: 'string',
+                amneties: 'string',
+                price: 2,
+                photos: 'string',
+                checkInTime: new Date('11-Nov-2021'),
+                checkOutTime: new Date('11-Nov-2021'),
+            },
+            {
+                rootType: 'string',
+                amneties: 'string',
+                price: 2,
+                photos: 'string',
+                checkInTime: new Date('11-Nov-2021'),
+                checkOutTime: new Date('11-Nov-2021'),
+            },
+            {
+                rootType: 'string',
+                amneties: 'string',
+                price: 2,
+                photos: 'string',
+                checkInTime: new Date('11-Nov-2021'),
+                checkOutTime: new Date('11-Nov-2021'),
+            },
+            {
+                rootType: 'string',
+                amneties: 'string',
+                price: 2,
+                photos: 'string',
+                checkInTime: new Date('11-Nov-2021'),
+                checkOutTime: new Date('11-Nov-2021'),
+            },
+            {
+                rootType: 'string',
+                amneties: 'string',
+                price: 2,
+                photos: 'string',
+                checkInTime: new Date('11-Nov-2021'),
+                checkOutTime: new Date('11-Nov-2021'),
+            }];
     }
 
     toogle() {
