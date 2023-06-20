@@ -1,0 +1,23 @@
+Room List {{rooms}}
+<table>
+    <tr>
+        <th>Room Type</th>
+        <th>Room Price</th>
+        <th>Room Amnesties</th>
+        <th>Checkin time</th>
+    </tr>
+    <tr
+            [ngClass]="e ? 'even': 'odd'"
+            *ngFor="let room of rooms; let e=even; let o=odd; let i=index;" >
+        <td>{{e ? "Even": "Odd" }}</td>
+        <td>{{ i | percent }}</td>
+        <td>{{room.rootType}}</td>
+        <td>{{room.price | currency: 'EUR'}}</td>
+        <td>{{room.amneties | lowercase }}</td>
+        <td>{{room.checkInTime | date: 'dd/MM/yyyy'}}</td>
+<!--        <button class="btn btn-primary" (roomsSelected)="selectRoom($event)" (click)="selectRoom(room)" >Select</button>-->
+
+        <app-rooms-list class="btn btn-primary" (roomsSelected)="selectRoom($event)" (click)="selectRoom(room)" >Select</app-rooms-list
+
+    </tr>
+</table>
