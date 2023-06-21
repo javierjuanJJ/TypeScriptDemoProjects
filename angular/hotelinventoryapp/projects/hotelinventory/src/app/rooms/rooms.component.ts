@@ -1,5 +1,15 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    Component, DoCheck,
+    EventEmitter,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChanges, ViewChild
+} from '@angular/core';
 import {Room, RoomList} from "./rooms";
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
     selector: 'app-rooms',
@@ -7,7 +17,7 @@ import {Room, RoomList} from "./rooms";
     styleUrls: ['./rooms.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomsComponent implements OnInit {
+export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit {
 
     hotelRoom = 'Hilton Hotel';
     numberOfRooms = 10;
@@ -22,13 +32,18 @@ export class RoomsComponent implements OnInit {
     roomList: RoomList[] = [
 
     ];
+    title = 'Room List';
+
     roomsSelected: RoomList;
+
+    @ViewChild(HeaderComponent, {static: true}) headerComponent: HeaderComponent;
     constructor() {
 
 
     }
 
     ngOnInit(): void {
+        console.log(this.headerComponent);
         this.roomList = [{
             rootType: 'string',
             amneties: 'string',
@@ -94,6 +109,7 @@ export class RoomsComponent implements OnInit {
     selectRoom(room: RoomList){
         console.log(room);
         this.roomsSelected = room;
+        this.title = 'Room List';
     }
 
     addRoom(){
@@ -106,7 +122,23 @@ export class RoomsComponent implements OnInit {
             checkInTime: new Date('11-Nov-2021'),
             checkOutTime: new Date('11-Nov-2021'),
         };
-        this.roomList.push(room);
+        // this.roomList.push(room);
+        this.roomList = [...this.roomList, room];
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        console.log(changes);
+        if (changes['title']){
+            this.title = changes['title'].currentValue.toUpperCase();
+        }
+    }
+
+    ngDoCheck(): void {
+        console.log("on check is called");
+    }
+
+    ngAfterViewInit(): void {
+        console.log(this.headerComponent);
     }
 
 }

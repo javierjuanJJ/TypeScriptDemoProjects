@@ -1,4 +1,6 @@
-Room List {{rooms}}
+<!--Room List -->
+<h2>{{ title }}</h2>
+{{rooms}}
 <table>
     <tr>
         <th>Room Type</th>
@@ -17,7 +19,7 @@ Room List {{rooms}}
         <td>{{room.checkInTime | date: 'dd/MM/yyyy'}}</td>
 <!--        <button class="btn btn-primary" (roomsSelected)="selectRoom($event)" (click)="selectRoom(room)" >Select</button>-->
 
-        <app-rooms-list class="btn btn-primary" (roomsSelected)="selectRoom($event)" (click)="selectRoom(room)" >Select</app-rooms-list
+        <app-rooms-list class="btn btn-primary" (roomsSelected)="selectRoom($event)" [title]="title" (click)="selectRoom(room)" >Select</app-rooms-list
 
     </tr>
 </table>
