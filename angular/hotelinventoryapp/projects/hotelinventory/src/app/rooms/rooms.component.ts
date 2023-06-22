@@ -1,11 +1,12 @@
 import {
+    AfterViewChecked,
     AfterViewInit,
     ChangeDetectionStrategy,
     Component, DoCheck,
     EventEmitter,
     OnChanges,
     OnInit,
-    Output,
+    Output, QueryList,
     SimpleChanges, ViewChild
 } from '@angular/core';
 import {Room, RoomList} from "./rooms";
@@ -17,7 +18,7 @@ import {HeaderComponent} from "../header/header.component";
     styleUrls: ['./rooms.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit {
+export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit, AfterViewChecked {
 
     hotelRoom = 'Hilton Hotel';
     numberOfRooms = 10;
@@ -36,7 +37,8 @@ export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit
 
     roomsSelected: RoomList;
 
-    @ViewChild(HeaderComponent, {static: true}) headerComponent: HeaderComponent;
+    @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
+    @ViewChild(HeaderComponent) headerChildrenComponent!: QueryList<HeaderComponent>;
     constructor() {
 
 
@@ -139,6 +141,14 @@ export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit
 
     ngAfterViewInit(): void {
         console.log(this.headerComponent);
+        this.headerComponent.title = "Rooms View";
+        this.headerChildrenComponent.last.title = "Last title";
+        // this.headerChildrenComponent.get(0)?.title? = "Last title";
+    }
+
+    ngAfterViewChecked(): void {
+        console.log();
+        //this.headerComponent.title = "Rooms View";
     }
 
 }
