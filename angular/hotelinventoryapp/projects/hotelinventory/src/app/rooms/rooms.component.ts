@@ -4,13 +4,14 @@ import {
     ChangeDetectionStrategy,
     Component, DoCheck,
     EventEmitter,
-    OnChanges,
+    OnChanges, OnDestroy,
     OnInit,
     Output, QueryList,
     SimpleChanges, ViewChild
 } from '@angular/core';
 import {Room, RoomList} from "./rooms";
 import {HeaderComponent} from "../header/header.component";
+import {RoomsService} from "./services/rooms.service";
 
 @Component({
     selector: 'app-rooms',
@@ -39,69 +40,14 @@ export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit
 
     @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
     @ViewChild(HeaderComponent) headerChildrenComponent!: QueryList<HeaderComponent>;
-    constructor() {
+    constructor(private roomService: RoomsService) {
 
 
     }
-
+    // roomService: RoomsService = new RoomsService();
     ngOnInit(): void {
         console.log(this.headerComponent);
-        this.roomList = [{
-            rootType: 'string',
-            amneties: 'string',
-            price: 2,
-            photos: 'string',
-            checkInTime: new Date('11-Nov-2021'),
-            checkOutTime: new Date('11-Nov-2021'),
-        },
-            {
-                rootType: 'string',
-                amneties: 'string',
-                price: 2,
-                photos: 'string',
-                checkInTime: new Date('11-Nov-2021'),
-                checkOutTime: new Date('11-Nov-2021'),
-            },
-            {
-                rootType: 'string',
-                amneties: 'string',
-                price: 2,
-                photos: 'string',
-                checkInTime: new Date('11-Nov-2021'),
-                checkOutTime: new Date('11-Nov-2021'),
-            },
-            {
-                rootType: 'string',
-                amneties: 'string',
-                price: 2,
-                photos: 'string',
-                checkInTime: new Date('11-Nov-2021'),
-                checkOutTime: new Date('11-Nov-2021'),
-            },
-            {
-                rootType: 'string',
-                amneties: 'string',
-                price: 2,
-                photos: 'string',
-                checkInTime: new Date('11-Nov-2021'),
-                checkOutTime: new Date('11-Nov-2021'),
-            },
-            {
-                rootType: 'string',
-                amneties: 'string',
-                price: 2,
-                photos: 'string',
-                checkInTime: new Date('11-Nov-2021'),
-                checkOutTime: new Date('11-Nov-2021'),
-            },
-            {
-                rootType: 'string',
-                amneties: 'string',
-                price: 2,
-                photos: 'string',
-                checkInTime: new Date('11-Nov-2021'),
-                checkOutTime: new Date('11-Nov-2021'),
-            }];
+        this.roomList = this.roomService.getRooms();
     }
 
     toogle() {
@@ -150,5 +96,6 @@ export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit
         console.log();
         //this.headerComponent.title = "Rooms View";
     }
+
 
 }
