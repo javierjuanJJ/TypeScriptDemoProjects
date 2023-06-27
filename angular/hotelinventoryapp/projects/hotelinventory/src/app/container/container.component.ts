@@ -1,5 +1,6 @@
-import {AfterContentInit, Component, ContentChild, OnInit, ViewChild} from '@angular/core';
+import {AfterContentInit, Component, ContentChild, Host, OnInit, Self, ViewChild} from '@angular/core';
 import {EmployeeComponent} from "../employee/employee.component";
+import {RoomsService} from "../rooms/services/rooms.service";
 
 @Component({
   selector: 'app-container',
@@ -9,7 +10,10 @@ import {EmployeeComponent} from "../employee/employee.component";
 export class ContainerComponent implements OnInit, AfterContentInit{
 
   @ContentChild(EmployeeComponent) employee !: EmployeeComponent;
+  constructor(@Host() private roomService: RoomsService) {
 
+
+  }
   ngAfterContentInit(): void {
     console.log(this.employee);
     this.employee.employee = "John changed";

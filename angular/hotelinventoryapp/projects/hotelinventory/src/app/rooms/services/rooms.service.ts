@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class RoomsService {
 
-  constructor() { }
+  constructor() {
+    console.log("Room service initialized.. ");
+  }
 
   private roomList: ({
     rootType: string;

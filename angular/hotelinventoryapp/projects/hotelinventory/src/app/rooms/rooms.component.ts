@@ -7,7 +7,7 @@ import {
     OnChanges, OnDestroy,
     OnInit,
     Output, QueryList,
-    SimpleChanges, ViewChild
+    SimpleChanges, SkipSelf, ViewChild
 } from '@angular/core';
 import {Room, RoomList} from "./rooms";
 import {HeaderComponent} from "../header/header.component";
@@ -40,7 +40,7 @@ export class RoomsComponent implements OnInit, OnChanges, DoCheck, AfterViewInit
 
     @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
     @ViewChild(HeaderComponent) headerChildrenComponent!: QueryList<HeaderComponent>;
-    constructor(private roomService: RoomsService) {
+    constructor(@SkipSelf() private roomService: RoomsService) {
 
 
     }
